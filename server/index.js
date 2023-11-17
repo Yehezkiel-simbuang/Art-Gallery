@@ -1,7 +1,10 @@
 const express = require("express");
+const path = require("path");
 const MediaRouter = require("./route/MediaRoute");
 const app = express();
 
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "/client/dist")));
 app.use(express.urlencoded());
 app.listen(3000, () => {
   console.log("Connected to port 3000....");
