@@ -5,9 +5,6 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "/client/dist")));
 app.use(express.urlencoded());
-app.listen(3000, () => {
-  console.log("Connected to port 3000....");
-});
 app.use("/api/v1", MediaRouter);
 app.use((err, req, res, next) => {
   const statusCode = err.statuscode || 500;
@@ -17,4 +14,7 @@ app.use((err, req, res, next) => {
     message,
     statusCode,
   });
+});
+app.listen(3000, () => {
+  console.log("Connected to port 3000....");
 });
