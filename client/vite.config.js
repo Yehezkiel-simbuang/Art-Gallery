@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://fragile-pea-coat-jay.cyclic.app/",
+        target: "http://localhost:3000",
         changeOrigin: true,
       },
     },

@@ -19,10 +19,13 @@ export default function Create() {
         form.append(key, formData[key]);
       }
       form.append("image", file);
-      const data = await fetch("/api/v1/submit", {
-        method: "POST",
-        body: form,
-      });
+      const data = await fetch(
+        "https://fragile-pea-coat-jay.cyclic.app/api/v1/submit",
+        {
+          method: "POST",
+          body: form,
+        }
+      );
       const jsondata = await data.json();
       if (jsondata.status === "SUCCESS") {
         console.log("upload success");
