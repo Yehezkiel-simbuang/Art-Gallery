@@ -5,8 +5,6 @@ const app = express();
 
 app.use(express.urlencoded());
 
-const __dirname = path.resolve();
-
 app.listen(3000, () => {
   console.log("Connected to port 3000....");
 });
