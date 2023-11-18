@@ -11,6 +11,8 @@ app.listen(3000, () => {
 
 app.use("/api/v1", MediaRouter);
 
+app.use(express.static(path.join(__dirname, "\\client\\dist")));
+
 app.use((err, req, res, next) => {
   const statusCode = err.statuscode || 500;
   const message = err.message || "Internal Server Error";
