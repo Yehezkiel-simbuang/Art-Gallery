@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://art-gallery-livid.vercel.app",
+        target: "https://fragile-pea-coat-jay.cyclic.app/",
         changeOrigin: true,
       },
     },
