@@ -3,9 +3,7 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        "https://fragile-pea-coat-jay.cyclic.app/api/v1/art"
-      );
+      const response = await fetch("/api/v1/art");
       const data = await response.json();
       setPosts(data);
     };
