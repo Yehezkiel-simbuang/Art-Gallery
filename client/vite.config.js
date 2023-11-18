@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:3000",
+        target: "https://art-gallery-livid.vercel.app",
         changeOrigin: true,
       },
     },
