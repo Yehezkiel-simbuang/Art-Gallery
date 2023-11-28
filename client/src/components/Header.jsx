@@ -7,9 +7,14 @@ export default function Header() {
         <Link to="/">
           <p className="text-lg text-white font-bold mx-4">App</p>
         </Link>
-        <Link to="/create">
-          <p className="text-lg text-white font-bold mx-4">Submit</p>
-        </Link>
+        <ul className="flex flex-row gap-4">
+          <Link to="/create">
+            <p className="text-lg text-white font-bold mx-4">Submit</p>
+          </Link>
+          <Link to="/login">
+            <p className="text-lg text-white font-bold mx-4">Login</p>
+          </Link>
+        </ul>
       </div>
     </div>
   );

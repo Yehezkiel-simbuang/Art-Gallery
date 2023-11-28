@@ -3,8 +3,7 @@ const { PrismaClient } = require("@prisma/client");
 const bcryptjs = require("bcryptjs");
 const { errorHandler } = require("../utils/errorHandler");
 const { mailSender } = require("../utils/email");
-const { request } = require("express");
-
+const { request, response } = require("express");
 require("dotenv").config();
 // response.cookie;
 // response.clearCookie;
@@ -30,7 +29,7 @@ const loginMiddleware = async (req, res, next) => {
     });
     res
       .status(200)
-      .cookie("access_token", token, { maxAge: 60000 * 30 })
+      .cookie("access_token", token, { maxAge: 60000 * 30, httpOnly: true })
       .json({ status: "SUCCESS" });
   } catch (error) {
     next(error);
@@ -84,7 +83,7 @@ const forgotPassword = async (req, res, next) => {
     });
     const url = `${req.protocol}://${req.get(
       "host"
-    )}/api/v1/auth/resetpassword/${resetToken}`;
+    )}/reset-password/${resetToken}`;
 
     const message = `Click the link below to reset your password account\n\n${url}\n\n The link above is valid until the next 10 minutes\n\nRegards,\nOwner`;
     await mailSender({
