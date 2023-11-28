@@ -14,6 +14,7 @@ const uploadMedia = async (req, res, next) => {
         name: req.body.name,
         description: req.body.description,
         url: uploadToImagekit.url,
+        userId: req.user.id,
       },
     });
     return res.status(200).json({
