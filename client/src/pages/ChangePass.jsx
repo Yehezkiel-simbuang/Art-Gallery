@@ -6,6 +6,7 @@ export default function ChangePass() {
   const [error, setError] = useState(undefined);
   const [same, setSame] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { token } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
     const isSame = () => {
@@ -29,7 +30,6 @@ export default function ChangePass() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const { token } = useParams();
       const data = await fetch(`/api/v1/auth/reset-password/${token}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -53,8 +53,8 @@ export default function ChangePass() {
         <h2 className="text-2xl font-semibold mb-6">Reset Password</h2>
 
         <form onSubmit={handleSubmit}>
-          <div class="mb-4">
-            <label class="block text-gray-600 text-sm font-medium mb-2">
+          <div className="mb-4">
+            <label className="block text-gray-600 text-sm font-medium mb-2">
               Password
             </label>
             <input
@@ -66,8 +66,8 @@ export default function ChangePass() {
               required
             />
           </div>
-          <div class="mb-4">
-            <label class="block text-gray-600 text-sm font-medium mb-2">
+          <div className="mb-4">
+            <label className="block text-gray-600 text-sm font-medium mb-2">
               Confirm Password
             </label>
             <input
