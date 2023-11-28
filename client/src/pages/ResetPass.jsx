@@ -40,8 +40,8 @@ export default function ResetPass() {
         <h2 className="text-2xl font-semibold mb-6">Reset Password</h2>
 
         <form onSubmit={handleSubmit}>
-          <div class="mb-4">
-            <label class="block text-gray-600 text-sm font-medium mb-2">
+          <div className="mb-4">
+            <label className="block text-gray-600 text-sm font-medium mb-2">
               Email
             </label>
             <input
