@@ -7,9 +7,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  Admin
+  User
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String @unique
+  password String
+  photoUrl String @default("https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg")
+  role Role @default(User)
+  createdAt DateTime @default(now())
+  updateAt DateTime  @default(now()) @updatedAt
+  art Art[]
+}
 model Art{
   id Int @id @default(autoincrement())
   name String
   description String
   url String
+  user User @relation(fields: [userId], references: [id])
+  userId Int
 }
