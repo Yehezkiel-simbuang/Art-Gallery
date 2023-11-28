@@ -25,6 +25,7 @@ export default function Login() {
       });
       const jsonData = await data.json();
       if (jsonData.success === false) {
+        setIsLoading(false);
         setError({ ...jsonData });
         return;
       }
