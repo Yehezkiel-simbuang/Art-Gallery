@@ -30,7 +30,7 @@ const loginMiddleware = async (req, res, next) => {
     res
       .status(200)
       .cookie("access_token", token, { maxAge: 60000 * 30, httpOnly: true })
-      .json({ status: "SUCCESS" });
+      .json(payload);
   } catch (error) {
     next(error);
   }

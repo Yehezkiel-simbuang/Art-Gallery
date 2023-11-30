@@ -31,7 +31,19 @@ const uploadMedia = async (req, res, next) => {
 
 const getArt = async (req, res, next) => {
   try {
-    const art = await prisma.art.findMany();
+    const art = await prisma.art.findMany({
+      select: {
+        id: true,
+        name: true,
+        description: true,
+        url: true,
+        user: {
+          select: {
+            email: true,
+          },
+        },
+      },
+    });
     return res.status(200).json(art);
   } catch (error) {
     next(error);

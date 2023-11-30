@@ -23,7 +23,10 @@ export default function Home() {
                 className="h-[320px] sm:h-[220px] w-full object-cover hover:scale-105 transition-scale duration-300"
                 src={post.url}
               />
-              <p className="text-gray-700 text-base">{post.name}</p>
+              <p className="block text-gray-700 font-medium text-lg">
+                {post.name}
+              </p>
+              <p className="text-gray-700 text-xs">{post.user.email}</p>
             </div>
           </div>
         ))}
